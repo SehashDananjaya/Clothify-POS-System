@@ -2,10 +2,11 @@ package service.custom;
 
 import dto.Product;
 import entity.ProductEntity;
+import service.SuperService;
 
 import java.util.List;
 
-public interface ProductService {
+public interface ProductService extends SuperService {
 
     Boolean addProduct(Product product);
     Boolean updateProduct(Product product);
