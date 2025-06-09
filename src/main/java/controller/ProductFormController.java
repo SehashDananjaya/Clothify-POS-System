@@ -1,27 +1,80 @@
 package controller;
 
-import db.DBConnection;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class ProductFormController {
-    public void getAll() throws SQLException {
-        Connection connection = DBConnection.getInstance().getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM products");
-        ResultSet resultSet = preparedStatement.executeQuery();
 
+    @FXML
+    private TableColumn<?, ?> colCategory;
 
-            while (resultSet.next()) {
+    @FXML
+    private TableColumn<?, ?> colDesc;
 
-                System.out.println(resultSet.getInt(1));
-                System.out.println(resultSet.getString(2));
-                System.out.println(resultSet.getString(3));
-                System.out.println(resultSet.getString(4));
+    @FXML
+    private TableColumn<?, ?> colId;
 
-            }
+    @FXML
+    private TableColumn<?, ?> colImagePath;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
+    private TableColumn<?, ?> colPrice;
+
+    @FXML
+    private TableColumn<?, ?> colQty;
+
+    @FXML
+    private TableColumn<?, ?> colSize;
+
+    @FXML
+    private TableColumn<?, ?> colSupplier;
+
+    @FXML
+    private TableView<?> tblProduct;
+
+    @FXML
+    private TextField txtCategory;
+
+    @FXML
+    private TextField txtDesc;
+
+    @FXML
+    private TextField txtId;
+
+    @FXML
+    private TextField txtImgPath;
+
+    @FXML
+    private TextField txtPrice;
+
+    @FXML
+    private TextField txtQtyOnHand;
+
+    @FXML
+    private TextField txtSize;
+
+    @FXML
+    private TextField txtSupplier;
+
+    @FXML
+    void btnAddOnAction(ActionEvent event) {
 
     }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnEditOnAction(ActionEvent event) {
+
+    }
+
 }
