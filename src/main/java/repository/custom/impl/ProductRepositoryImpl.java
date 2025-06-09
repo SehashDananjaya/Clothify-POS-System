@@ -1,4 +1,12 @@
 package repository.custom.impl;
 
-public class ProductRepositoryImpl {
+import entity.ProductEntity;
+import repository.custom.ProductRepository;
+
+public class ProductRepositoryImpl implements ProductRepository {
+    @Override
+    public Boolean addProduct(ProductEntity productEntity) {
+        System.out.println("Product Added");
+        return null;
+    }
 }

@@ -1,12 +1,19 @@
 package controller;
 
+import dto.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import service.ServiceFactory;
+import service.custom.ProductService;
+import util.ServiceType;
 
 public class ProductFormController {
+
+
+    ProductService productService= ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
 
     @FXML
     private TableColumn<?, ?> colCategory;
@@ -64,7 +71,8 @@ public class ProductFormController {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
+        Product product = new Product();
+        Boolean b =productService.addProduct(product);
     }
 
     @FXML

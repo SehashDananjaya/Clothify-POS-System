@@ -1,5 +1,6 @@
 package service;
 
+import service.custom.ProductService;
 import service.custom.impl.ProductServiceImpl;
 import util.ServiceType;
 
@@ -22,4 +23,3 @@ public class ServiceFactory {
 
     }
 }
-g
