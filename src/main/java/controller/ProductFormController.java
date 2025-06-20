@@ -16,34 +16,34 @@ public class ProductFormController {
     ProductService productService= ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
 
     @FXML
-    private TableColumn<?, ?> colCategory;
+    private TableColumn colCategory;
 
     @FXML
-    private TableColumn<?, ?> colDesc;
+    private TableColumn colDesc;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn colId;
 
     @FXML
-    private TableColumn<?, ?> colImagePath;
+    private TableColumn colImagePath;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn colName;
 
     @FXML
-    private TableColumn<?, ?> colPrice;
+    private TableColumn colPrice;
 
     @FXML
-    private TableColumn<?, ?> colQty;
+    private TableColumn colQty;
 
     @FXML
-    private TableColumn<?, ?> colSize;
+    private TableColumn colSize;
 
     @FXML
-    private TableColumn<?, ?> colSupplier;
+    private TableColumn colSupplier;
 
     @FXML
-    private TableView<?> tblProduct;
+    private TableView tblProduct;
 
     @FXML
     private TextField txtCategory;
