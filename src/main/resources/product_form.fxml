@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="439.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductFormController">
    <children>
       <TableView fx:id="tblProduct" layoutX="14.0" layoutY="213.0" prefHeight="200.0" prefWidth="652.0">
@@ -22,7 +21,7 @@
             <TableColumn fx:id="colDesc" prefWidth="158.6666259765625" text="Description" />
         </columns>
       </TableView>
-      <TextField fx:id="txtId" layoutX="58.0" layoutY="65.0" promptText="Name" />
+      <TextField fx:id="txtName" layoutX="58.0" layoutY="65.0" promptText="Name" />
       <TextField fx:id="txtCategory" layoutX="58.0" layoutY="107.0" promptText="Category" />
       <TextField fx:id="txtSize" layoutX="58.0" layoutY="154.0" promptText="Size" />
       <TextField fx:id="txtPrice" layoutX="227.0" layoutY="65.0" promptText="Price" />
@@ -31,7 +30,10 @@
       <TextField fx:id="txtDesc" layoutX="411.0" layoutY="119.0" promptText="Description" />
       <TextField fx:id="txtSupplier" layoutX="411.0" layoutY="75.0" promptText="Supplier" />
       <Button layoutX="385.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
-      <Button layoutX="449.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnEditOnAction" text="Edit" />
-      <Button layoutX="516.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="431.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnEditOnAction" text="Edit" />
+      <Button layoutX="529.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="583.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnRefreshTableOnAction" text="RefreshTable" />
+      <Button layoutX="470.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="57.0" text="Update" />
+      <TextField fx:id="txtId" disable="true" layoutX="58.0" layoutY="29.0" prefHeight="25.0" prefWidth="65.0" />
    </children>
 </AnchorPane>

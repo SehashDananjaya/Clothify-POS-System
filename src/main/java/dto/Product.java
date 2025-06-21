@@ -20,4 +20,15 @@ public class Product {
     private String imgPath;
     private String supplier;
     private String description;
+
+    public Product(String name,String category,String size,Double price,Integer quantityOnHand,String imgPath,String supplier,String description){
+        this.name=name;
+        this.category=category;
+        this.size=size;
+        this.Price=price;
+        this.quantityOnHand=quantityOnHand;
+        this.imgPath=imgPath;
+        this.supplier=supplier;
+        this.description=description;
+    }
 }

@@ -14,9 +14,12 @@ public class ProductEntity {
     private String name;
     private String category;
     private String size;
-    private Double Price;
+    private Double price;
     private Integer quantityOnHand;
     private String imgPath;
     private String supplier;
     private String description;
+
+
+
 }
