@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class EmployeeEntity {
-    private String id;
+    private Integer id;
     private String name;
     private String company;
     private String emailAddress;

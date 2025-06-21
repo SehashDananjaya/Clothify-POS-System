@@ -53,6 +53,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Boolean deleteProduct(String id) throws SQLException {
+
+        String SQL ="DELETE FROM Product WHERE id = ?";
+
+        return CrudUtil.execute(SQL, id);
+
+
+       // return null;
+    }
+
+    @Override
     public Product searchById(String id) throws SQLException {
 
         ResultSet resultSet = CrudUtil.execute("SELECT * FROM product WHERE id=?", id);

@@ -1,6 +1,7 @@
 package service;
 
 import service.custom.ProductService;
+import service.custom.impl.EmployeeServiceImpl;
 import service.custom.impl.ProductServiceImpl;
 import util.ServiceType;
 
@@ -17,7 +18,7 @@ public class ServiceFactory {
 
         switch (type){
             case PRODUCT: return (T) new ProductServiceImpl();
-           // case ITEM: return (T) new ItemServiceImpl();
+           case EMPLOYEE: return (T) new EmployeeServiceImpl();
         }
         return null;
 

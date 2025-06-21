@@ -11,6 +11,7 @@ public interface ProductService extends SuperService {
 
     Boolean addProduct(Product product) throws SQLException;
     Boolean updateProduct(Product product) throws SQLException;
+    Boolean deleteProduct(String id) throws SQLException;
     Product searchById (String id) throws SQLException;
     List<Product>getAll();
 

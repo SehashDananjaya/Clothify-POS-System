@@ -10,8 +10,15 @@ import lombok.NoArgsConstructor;
 
 public class Employee {
 
-    private String id;
+
+    private Integer id;
     private String name;
     private String company;
     private String emailAddress;
+
+    public Employee(String name, String company, String emailAddress) {
+        this.name = name;
+        this.company = company;
+        this.emailAddress = emailAddress;
+    }
 }

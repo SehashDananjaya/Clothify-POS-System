@@ -137,6 +137,23 @@ public class ProductFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        fillFieldsFromTable();
+        String id = txtId.getText();
+
+        try {
+            Boolean b = productService.deleteProduct(id);
+            loadTable();
+            clearFields();
+
+            if (b){
+                new Alert(Alert.AlertType.INFORMATION,"Product Deleted").show();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION,"Product Not Deleted").show();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -160,7 +177,14 @@ public class ProductFormController implements Initializable {
                 txtSupplier.getText(),
                 txtDesc.getText());
 
-            productService.updateProduct(product);
+            Boolean b = productService.updateProduct(product);
+
+            if (b){
+                new Alert(Alert.AlertType.INFORMATION,"Product Updated").show();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION,"Product Not Updated").show();
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -216,10 +240,6 @@ public class ProductFormController implements Initializable {
     }
 
 
-    private void loadProductToFields(Product product) {
-
-
-    }
 
 
     private void fillFieldsFromTable(){

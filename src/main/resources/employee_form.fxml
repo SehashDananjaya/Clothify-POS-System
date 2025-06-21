@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeFormController">
+   <children>
+      <TextField fx:id="txtEmpID" disable="true" layoutX="67.0" layoutY="44.0" prefHeight="25.0" prefWidth="99.0" promptText="Employee ID" />
+      <TextField fx:id="txtEmpName" layoutX="67.0" layoutY="82.0" promptText="Name" />
+      <TextField fx:id="txtEmpCompany" layoutX="343.0" layoutY="44.0" promptText="Company" />
+      <TextField fx:id="txtEmpEmailAddress" layoutX="343.0" layoutY="82.0" promptText="E-mail Address" />
+      <TableView fx:id="tblEmployee" layoutX="66.0" layoutY="164.0" prefHeight="200.0" prefWidth="477.0">
+        <columns>
+          <TableColumn fx:id="colEmpId" prefWidth="78.00000762939453" text="Employee ID" />
+          <TableColumn fx:id="colEmpName" prefWidth="124.66664123535156" text="Name" />
+            <TableColumn fx:id="colEmpCompany" prefWidth="101.33331298828125" text="Company" />
+            <TableColumn fx:id="colEmpEmail" prefWidth="173.33340454101562" text="Email Address" />
+        </columns>
+      </TableView>
+      <Button layoutX="248.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="51.0" text="Add" />
+      <Button layoutX="303.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="25.0" prefWidth="51.0" text="Edit" />
+      <Button layoutX="358.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
+      <Button layoutX="417.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="473.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnReloadOnAction" prefHeight="25.0" prefWidth="85.0" text="Reload Table" />
+   </children>
+</AnchorPane>
