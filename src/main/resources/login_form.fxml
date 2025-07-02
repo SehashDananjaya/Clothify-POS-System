@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="323.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00417d" height="325.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
+      <Label layoutX="53.0" layoutY="67.0" text="Login In" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUserName" layoutX="278.0" layoutY="92.0" prefHeight="25.0" prefWidth="159.0" promptText=" User Name" />
+      <TextField fx:id="txtPassword" layoutX="278.0" layoutY="137.0" prefHeight="25.0" prefWidth="159.0" promptText="Password" />
+      <Button layoutX="325.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnSignInOnAction" style="-fx-background-color: #3498db;" text="Sign in" textFill="WHITE" />
+      <Button layoutX="385.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #bdc3c7;" text="Cancel" />
+      <JFXButton layoutX="367.0" layoutY="273.0" onAction="#btnRegistrationOnAction" style="-fx-background-color: #1abc9c;" text="Register Here" textFill="WHITE" />
+   </children>
+</AnchorPane>
