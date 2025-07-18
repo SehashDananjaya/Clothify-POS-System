@@ -9,9 +9,14 @@ import lombok.*;
 @Builder
 
 public class Supplier {
-    private String id;
+    private Integer id;
     private String name;
-    private String email;
     private String company;
-    private String item;
+    private String emailAddress;
+
+    public Supplier(String name, String company, String emailAddress) {
+        this.name = name;
+        this.company = company;
+        this.emailAddress = emailAddress;
+    }
 }

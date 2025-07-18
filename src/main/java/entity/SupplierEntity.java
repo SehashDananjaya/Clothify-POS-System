@@ -12,9 +12,8 @@ import lombok.ToString;
 @ToString
 
 public class SupplierEntity {
-    private String id;
+    private Integer id;
     private String name;
-    private String email;
     private String company;
-    private String item;
+    private String emailAddress;
 }
