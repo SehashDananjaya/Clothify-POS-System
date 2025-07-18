@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import service.custom.EmployeeService;
 import util.CrudUtil;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -23,13 +24,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Boolean updateEmployee(Employee employee) {
-        return null;
+    public Boolean updateEmployee(Employee employee) throws SQLException {
+
+        EmployeeEntity employeeEntity = new ModelMapper().map(employee, EmployeeEntity.class);
+
+        String sql = "UPDATE employee SET name= ?,company= ?,Address= ? WHERE id =?";
+
+        Boolean bo = CrudUtil.execute(sql,
+                employeeEntity.getName(),
+                employeeEntity.getCompany(),
+                employeeEntity.getEmailAddress(),
+                employeeEntity.getId());
+        return bo;
     }
 
     @Override
     public Boolean deleteEmployee(String id) throws SQLException {
-        return null;
+        String SQL ="DELETE FROM Employee WHERE id = ?";
+
+        Boolean b = CrudUtil.execute(SQL, id);
+        return b;
     }
 
     @Override

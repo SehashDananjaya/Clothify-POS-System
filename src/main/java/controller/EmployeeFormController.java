@@ -26,6 +26,8 @@ public class EmployeeFormController implements Initializable {
 
     EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
 
+
+
     @FXML
     private TableColumn colEmpCompany;
 
@@ -81,7 +83,7 @@ public class EmployeeFormController implements Initializable {
             loadTable();
 
             if (b) {
-                new Alert(Alert.AlertType.INFORMATION,"Product Added").show();
+                new Alert(Alert.AlertType.INFORMATION,"Employee Added").show();
 
             }else{
                 new Alert(Alert.AlertType.INFORMATION,"Failed to Add").show();
@@ -96,22 +98,63 @@ public class EmployeeFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        fillFieldsFromTable();
+        String id = txtEmpID.getText();
+
+        try {
+            Boolean b = employeeService.deleteEmployee(id);
+            loadTable();
+            clearFields();
+
+            if (b){
+                new Alert(Alert.AlertType.INFORMATION,"Employee "+id+" Deleted").show();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION,"Employee Not Deleted").show();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @FXML
     void btnEditOnAction(ActionEvent event) {
 
+        fillFieldsFromTable();
     }
 
     @FXML
     void btnReloadOnAction(ActionEvent event) {
 
         loadTable();
+        clearFields();
 
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+
+
+        Employee employee = new Employee(
+                Integer.parseInt(txtEmpID.getText()),
+                txtEmpName.getText(),
+                txtEmpCompany.getText(),
+                txtEmpEmailAddress.getText()
+        );
+        try {
+            Boolean b = employeeService.updateEmployee(employee);
+            if (b){
+                new Alert(Alert.AlertType.INFORMATION,"Employee Updated").show();
+                loadTable();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION,"Employee Not Updated").show();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -136,6 +179,28 @@ public class EmployeeFormController implements Initializable {
                 throw new RuntimeException(e);
             }
 
+    }
+
+    private void fillFieldsFromTable(){
+        Employee selectedEmployee = (Employee) tblEmployee.getSelectionModel().getSelectedItem();
+        if (selectedEmployee != null) {
+            txtEmpID.setText(selectedEmployee.getId().toString());
+            txtEmpName.setText(selectedEmployee.getName());
+            txtEmpCompany.setText(selectedEmployee.getCompany());
+            txtEmpEmailAddress.setText(selectedEmployee.getEmailAddress());
+
+
+        } else {
+            new Alert(Alert.AlertType.INFORMATION,"Select the field from table").show();
+
+        }
+    }
+
+    private void clearFields() {
+        txtEmpID.clear();
+        txtEmpName.clear();
+        txtEmpCompany.clear();
+        txtEmpEmailAddress.clear();
     }
 
 
