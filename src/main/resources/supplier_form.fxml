@@ -9,32 +9,31 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierFormController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierFormController">
    <children>
-      <TextField fx:id="txtSId" layoutX="36.0" layoutY="134.0" prefHeight="25.0" prefWidth="113.0" promptText="Supplier ID" />
-      <TextField fx:id="txtSName" layoutX="175.0" layoutY="134.0" prefHeight="25.0" prefWidth="171.0" promptText="Supplier Name" />
-      <TextField fx:id="txtSEmail" layoutX="37.0" layoutY="174.0" prefHeight="25.0" prefWidth="181.0" promptText="Supplier Email" />
-      <TextField fx:id="txtSComapny" layoutX="236.0" layoutY="174.0" prefHeight="25.0" prefWidth="152.0" promptText="Supplier Company" />
-      <TextField fx:id="txtSItem" layoutX="428.0" layoutY="174.0" prefHeight="25.0" prefWidth="113.0" promptText="Supplier Items" />
-      <Button layoutX="301.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
-      <Button layoutX="347.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnEditOnAction" text="Edit" />
-      <Button layoutX="445.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
-      <Button layoutX="499.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnRefreshTableOnAction" text="RefreshTable" />
-      <Button layoutX="386.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="57.0" text="Update" />
-      <TableView fx:id="tblSupplier" layoutX="36.0" layoutY="251.0" prefHeight="130.0" prefWidth="559.0">
+      <TextField fx:id="txtSId" layoutX="42.0" layoutY="139.0" prefHeight="25.0" prefWidth="166.0" promptText="Supplier ID" />
+      <TextField fx:id="txtSName" layoutX="260.0" layoutY="139.0" prefHeight="25.0" prefWidth="397.0" promptText="Supplier Name" />
+      <TextField fx:id="txtSEmail" layoutX="43.0" layoutY="179.0" prefHeight="25.0" prefWidth="203.0" promptText="Supplier Email" />
+      <TextField fx:id="txtSComapny" layoutX="270.0" layoutY="179.0" prefHeight="25.0" prefWidth="191.0" promptText="Supplier Company" />
+      <TextField fx:id="txtSItem" layoutX="491.0" layoutY="179.0" prefHeight="25.0" prefWidth="166.0" promptText="Supplier Items" />
+      <Button layoutX="388.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
+      <Button layoutX="434.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnEditOnAction" text="Edit" />
+      <Button layoutX="532.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="586.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnRefreshTableOnAction" text="RefreshTable" />
+      <Button layoutX="473.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="57.0" text="Update" />
+      <TableView fx:id="tblSupplier" layoutX="30.0" layoutY="284.0" prefHeight="192.0" prefWidth="645.0">
         <columns>
           <TableColumn fx:id="colSId" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="colSName" prefWidth="100.66671752929688" text="Name" />
-            <TableColumn fx:id="colSEmail" prefWidth="141.33335876464844" text="Email" />
-            <TableColumn fx:id="colSComapny" prefWidth="115.33331298828125" text="Comapny" />
-            <TableColumn fx:id="colSItem" prefWidth="126.00009155273438" text="Item" />
+          <TableColumn fx:id="colSName" prefWidth="134.66668701171875" text="Name" />
+            <TableColumn fx:id="colSEmail" prefWidth="148.66668701171875" text="Email" />
+            <TableColumn fx:id="colSComapny" prefWidth="139.3333740234375" text="Comapny" />
+            <TableColumn fx:id="colSItem" prefWidth="143.33331298828125" text="Item" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#03417b" height="91.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label layoutX="189.0" layoutY="28.0" text="Supplier Management" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#001751" height="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+      <Label layoutX="214.0" layoutY="28.0" text="Supplier Management" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
    </children>

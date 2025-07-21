@@ -2,14 +2,17 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="439.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductFormController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductFormController">
    <children>
-      <TableView fx:id="tblProduct" layoutX="14.0" layoutY="213.0" prefHeight="200.0" prefWidth="652.0">
+      <TableView fx:id="tblProduct" layoutX="23.0" layoutY="288.0" prefHeight="200.0" prefWidth="652.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="48.6666898727417" text="ID" />
           <TableColumn fx:id="colName" prefWidth="78.6666488647461" text="Name" />
@@ -22,19 +25,25 @@
             <TableColumn fx:id="colDesc" prefWidth="158.6666259765625" text="Description" />
         </columns>
       </TableView>
-      <TextField fx:id="txtName" layoutX="58.0" layoutY="65.0" promptText="Name" />
-      <TextField fx:id="txtCategory" layoutX="58.0" layoutY="107.0" promptText="Category" />
-      <TextField fx:id="txtSize" layoutX="58.0" layoutY="154.0" promptText="Size" />
-      <TextField fx:id="txtPrice" layoutX="227.0" layoutY="65.0" promptText="Price" />
-      <TextField fx:id="txtQtyOnHand" layoutX="227.0" layoutY="107.0" promptText="Quantity On Hand" />
-      <TextField fx:id="txtImgPath" layoutX="227.0" layoutY="154.0" promptText="Image Path" />
-      <TextField fx:id="txtDesc" layoutX="411.0" layoutY="119.0" promptText="Description" />
-      <Button layoutX="385.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
-      <Button layoutX="431.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnEditOnAction" text="Edit" />
-      <Button layoutX="529.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
-      <Button layoutX="583.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnRefreshTableOnAction" text="RefreshTable" />
-      <Button layoutX="470.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="57.0" text="Update" />
-      <TextField fx:id="txtId" disable="true" layoutX="58.0" layoutY="29.0" prefHeight="25.0" prefWidth="65.0" />
-      <ComboBox fx:id="cmbSupplier" layoutX="505.0" layoutY="42.0" prefWidth="150.0" />
+      <TextField fx:id="txtName" layoutX="67.0" layoutY="140.0" promptText="Name" />
+      <TextField fx:id="txtCategory" layoutX="67.0" layoutY="182.0" promptText="Category" />
+      <TextField fx:id="txtSize" layoutX="67.0" layoutY="229.0" promptText="Size" />
+      <TextField fx:id="txtPrice" layoutX="236.0" layoutY="140.0" promptText="Price" />
+      <TextField fx:id="txtQtyOnHand" layoutX="236.0" layoutY="182.0" promptText="Quantity On Hand" />
+      <TextField fx:id="txtImgPath" layoutX="236.0" layoutY="229.0" promptText="Image Path" />
+      <TextField fx:id="txtDesc" layoutX="420.0" layoutY="194.0" promptText="Description" />
+      <Button layoutX="394.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
+      <Button layoutX="440.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnEditOnAction" text="Edit" />
+      <Button layoutX="538.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="592.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnRefreshTableOnAction" text="RefreshTable" />
+      <Button layoutX="479.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="57.0" text="Update" />
+      <TextField fx:id="txtId" disable="true" layoutX="67.0" layoutY="104.0" prefHeight="25.0" prefWidth="65.0" />
+      <ComboBox fx:id="cmbSupplier" layoutX="514.0" layoutY="117.0" prefWidth="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#001751" height="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+      <Label layoutX="299.0" layoutY="27.0" text="Products" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
