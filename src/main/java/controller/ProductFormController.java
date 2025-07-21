@@ -6,25 +6,29 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
 import service.custom.ProductService;
+import service.custom.SupplierService;
 import util.CrudUtil;
 import util.ServiceType;
 
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProductFormController implements Initializable {
 
 
     ProductService productService= ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
+    SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
+
+
+    @FXML
+    private ComboBox cmbSupplier;
 
     @FXML
     private TableColumn colCategory;
@@ -80,9 +84,6 @@ public class ProductFormController implements Initializable {
     @FXML
     private TextField txtSize;
 
-    @FXML
-    private TextField txtSupplier;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -97,6 +98,7 @@ public class ProductFormController implements Initializable {
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         loadTable();
+        loadSupplierName();
 
 
 
@@ -113,7 +115,8 @@ public class ProductFormController implements Initializable {
         Double price= Double.parseDouble(txtPrice.getText());
         Integer quantityOnHand = Integer.parseInt(txtQtyOnHand.getText());
         String imgPath = txtImgPath.getText();
-        String supplier =  txtSupplier.getText();
+       // String supplier =  txtSupplier.getText();
+        String supplier =  cmbSupplier.getValue().toString();
         String description = txtDesc.getText();
 
         Product product = new Product(name,category,size,price,quantityOnHand,imgPath,supplier,description);
@@ -174,7 +177,7 @@ public class ProductFormController implements Initializable {
                 Double.parseDouble(txtPrice.getText()),
                 Integer.parseInt(txtQtyOnHand.getText()),
                 txtImgPath.getText(),
-                txtSupplier.getText(),
+                cmbSupplier.getValue().toString(),
                 txtDesc.getText());
 
             Boolean b = productService.updateProduct(product);
@@ -209,7 +212,7 @@ public class ProductFormController implements Initializable {
             txtPrice.clear();
             txtQtyOnHand.clear();
             txtImgPath.clear();
-            txtSupplier.clear();
+            cmbSupplier.getSelectionModel().clearSelection();
             txtDesc.clear();
     }
 
@@ -252,13 +255,24 @@ public class ProductFormController implements Initializable {
             txtPrice.setText(String.valueOf(selectedProduct.getPrice()));
             txtQtyOnHand.setText(String.valueOf(selectedProduct.getQuantityOnHand()));
             txtImgPath.setText(selectedProduct.getImgPath());
-            txtSupplier.setText(selectedProduct.getSupplier());
+           // txtSupplier.setText(selectedProduct.getSupplier());
+            cmbSupplier.setValue(selectedProduct.getSupplier());
             txtDesc.setText(selectedProduct.getDescription());
 
         } else {
             new Alert(Alert.AlertType.INFORMATION,"Select the field from table").show();
 
         }
+    }
+
+    public void loadSupplierName(){
+        try {
+            List<String> supplierNames = supplierService.getSupplierNames();
+            cmbSupplier.setItems(FXCollections.observableArrayList(supplierNames));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 

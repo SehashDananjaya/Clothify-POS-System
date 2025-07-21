@@ -7,7 +7,9 @@ import org.modelmapper.ModelMapper;
 import service.custom.SupplierService;
 import util.CrudUtil;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierServiceImpl implements SupplierService {
@@ -44,12 +46,42 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public Employee searchByIdSupplier(String id) {
+    public Supplier searchByIdSupplier(String id) {
         return null;
     }
 
     @Override
-    public List<Employee> getAll() {
-        return List.of();
+    public List<Supplier> getAll() throws SQLException {
+
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM supplier");
+        ArrayList<SupplierEntity> supplierEntityArrayList = new ArrayList<>();
+
+        while (resultSet.next()){
+            supplierEntityArrayList.add(new SupplierEntity(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("company"),
+                    resultSet.getString("emailAddress")
+            ));
+        }
+
+        ArrayList<Supplier> supplierArrayList = new ArrayList<>();
+
+        supplierEntityArrayList.forEach(supplierEntity -> {
+            supplierArrayList.add(new ModelMapper().map(supplierEntity,Supplier.class));
+        });
+        return supplierArrayList;
+    }
+
+    public List<String> getSupplierNames() throws SQLException {
+
+        List<Supplier> supplierList = getAll();
+
+        ArrayList<String> supplierNameList = new ArrayList<>();
+
+        supplierList.forEach(supplier -> {
+            supplierNameList.add(supplier.getName());
+        });
+        return supplierNameList;
     }
 }
